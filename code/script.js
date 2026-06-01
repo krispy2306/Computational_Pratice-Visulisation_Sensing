@@ -33,15 +33,28 @@ fetch('data/london_noise.json')
     .then(data => {
         data.forEach(point => {
             const colour = getColour(point.laeq);
+            const radius = getRadius(point.laeq);
+            const opacity = getOpacity(point.laeq);
 
             L.circleMarker([point.lat, point.lon], {
-                radius: getRadius(point.laeq),
+                radius: radius * 1.8,
                 fillColor: colour,
                 color: colour,
-                fillOpacity: getOpacity(point.laeq),
-                opacity: 0.25,
+                fillOpacity: opacity * 0.16,
+                opacity: 0,
+                weight: 0,
+                interactive: false
+            }).addTo(map);
+
+            L.circleMarker([point.lat, point.lon], {
+                radius: radius,
+                fillColor: colour,
+                color: colour,
+                fillOpacity: Math.min(opacity + 0.18, 0.95),
+                opacity: 0.65,
                 weight: 1
             })
+            
             .bindPopup(`
                 <strong>${point.borough}</strong><br>
                 LAeq: ${point.laeq} dB<br>

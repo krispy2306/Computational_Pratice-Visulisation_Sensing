@@ -1,44 +1,45 @@
 html, body {
     margin: 0;
     height: 100%;
-
+    background: #02040a;
 }
 
 #map {
+    position: relative;
     height: 100vh;
     width: 100%;
+    background: #02040a;
 }
 
-leaflet-interactive {
-    filter: drop-shadow(12px 12px 4px rgba(51, 50, 50, 0.45));
-}
 
 .leaflet-tile-pane {
-    filter: brightness(0.55) contrast(1.15) saturate(0.6);
+    filter: brightness(0.32) contrast(0.85) saturate(0.25) blur(0.8px);
 }
 
-#map::after {
+
+#map::before {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background:
-        radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.04), transparent 35%),
-        rgba(2, 6, 18, 0.35);
     z-index: 450;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(90, 120, 255, 0.07), transparent 28%),
+        radial-gradient(circle at 70% 65%, rgba(255, 120, 80, 0.06), transparent 30%),
+        linear-gradient(rgba(3, 7, 18, 0.45), rgba(3, 7, 18, 0.78));
 }
 
-.leaflet-overlay-pane {
-    z-index: 500;
+
+.leaflet-overlay-pane svg {
+    filter: brightness(1.35) saturate(1.25);
 }
 
-.leaflet-marker-pane,
-.leaflet-shadow-pane,
+/* Keep popups readable */
 .leaflet-popup-pane {
-    z-index: 600;
+    z-index: 700;
 }
 
-.leaflet-interactive {
-    filter: drop-shadow(0 0 8px rgba(255, 180, 120, 0.45));
+
+/* .leaflet-interactive {
     mix-blend-mode: screen;
-} 
+} */
