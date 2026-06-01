@@ -105,9 +105,9 @@ function drawPoints(data) {
             weight: 1
         })
         .bindPopup(`
-            <strong>${point.borough}</strong><br>
-            LAeq: ${point.laeq} dB<br>
-            Measurements: ${point.measure_count}
+            <span class="popup-borough">${point.borough}</span>
+            <div class="popup-db">${point.laeq}<span>dB(A)</span></div>
+            ${point.measure_count ? `${point.measure_count} measurements` : ''}
         `)
         .addTo(map);
 

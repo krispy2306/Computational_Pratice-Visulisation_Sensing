@@ -38,7 +38,18 @@
         <p>Showing all recorded sound points.</p>
     </div>
 
-    <button id="resetButton">Reset view</button>
+    <div class="legend">
+        <div class="legend-label">Sound intensity</div>
+        <div class="legend-bar"></div>
+        <div class="legend-ticks">
+            <span>Quiet</span>
+            <span>Loud</span>
+        </div>
+    </div>
+
+    <button id="resetButton" type="button" aria-label="Reset map view to all London">
+        Reset view
+    </button>
 </aside>
 
 <div id="map"></div>

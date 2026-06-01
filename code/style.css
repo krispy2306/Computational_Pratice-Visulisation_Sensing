@@ -288,6 +288,7 @@ html, body { height: 100%; overflow: hidden; }
     font-family: monospace
 }
 
+
 /* ── Popup ───────────────────────────────────────────────── */
 .leaflet-popup-content-wrapper {
     background: linear-gradient(
