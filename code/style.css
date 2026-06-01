@@ -4,11 +4,13 @@ html, body {
     background: #02040a;
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; } 
+
 #map {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: #02040a;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
 }
 
 
@@ -75,4 +77,279 @@ html, body {
 .leaflet-control-container {
     position: relative;
     z-index: 900;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Monserrat', Arial, sans-serif;
+    padding: 32px 24px 28px;
+    color: #f4f1e8;
+    background: linear-gradient(
+        160deg,
+        rgba(4, 7, 20, 0.82) 0%,
+        rgba(8, 12, 30, 0.72) 100%
+    );
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+#sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 200, 80, 0.6) 40%,
+        rgba(230, 80, 80, 0.5) 70%,
+        transparent
+    );
+} 
+
+#sidebar .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 232, 0.38);
+    margin-bottom: 10px;
+}
+
+#sidebar h1 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: #f4f1e8;
+    margin-bottom: 16px;
+    font-family: 'Syne', Arial, sans-serif;
+}
+
+#sidebar h1 span {
+    color: rgba(255, 200, 80, 0.9);
+    font-weight: 500;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 16px 0;
+} 
+
+
+#sidebar p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(244, 241, 232, 0.62);
+    margin-bottom: 12px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+#sidebar p:last-of-type {
+    margin-bottom: 0;
+}
+
+.stat-inline {
+    color: rgba(255, 200, 80, 0.9);
+    font-weight: 500;
+}
+
+#sidebar label {
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 232, 0.4);
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+#boroughSelect,
+#resetButton {
+    width: 100%;
+    padding: 10px 12px;
+    color: #f4f1e8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: background 0.15s, border-color 0.15s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#boroughSelect {
+    margin-bottom: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(244,241,232,0.4)' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    cursor: pointer;
+}
+
+#boroughSelect option {
+    background: #0a0d1a;
+    color: #f4f1e8;
+}
+
+#resetButton {
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.04em;
+    font-size: 11.5px;
+    color: rgba(244, 241, 232, 0.7);
+}
+
+#boroughSelect:hover,
+#resetButton:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+#resetButton:active {
+    transform: scale(0.98);
+}
+
+#boroughInfo {
+    margin-top: 4px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(244, 241, 232, 0.65);
+}
+
+#boroughInfo strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 10.5px;
+    color: rgba(244, 241, 232, 0.25);
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sidebar-footer a {
+    color: rgba(244, 241, 232, 0.38);
+    text-decoration: none;
+}
+
+.sidebar-footer a:hover {
+    color: rgba(244, 241, 232, 0.65);
+}
+
+.legend {
+    margin-top: 18px;
+}
+
+.legend-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(244, 241, 232, 0.4);
+    margin-bottom: 7px;
+} 
+
+.legend-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #4fc3f7, #81c784, #fff176, #ff8a65, #e05252);
+    margin-bottom: 5px;
+}
+
+.legend-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(244, 241, 232, 0.35);
+    font-family: monospace
+}
+
+/* ── Popup ───────────────────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+    background: linear-gradient(
+        160deg,
+        rgba(4, 7, 20, 0.92) 0%,
+        rgba(8, 12, 30, 0.85) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    box-shadow: none;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    color: #f4f1e8;
+    font-family: 'Montserrat', Arial, sans-serif;
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 14px 16px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: rgba(244, 241, 232, 0.65);
+}
+
+.leaflet-popup-content .popup-borough {
+    display: block;
+    font-family: 'Syne', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.leaflet-popup-content .popup-db {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'Syne', Arial, sans-serif;
+    color: rgba(255, 200, 80, 0.9);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.leaflet-popup-content .popup-db span {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(244, 241, 232, 0.4);
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-left: 4px;
+}
+
+.leaflet-popup-tip-container {
+    display: none;
+}
+
+.leaflet-popup-close-button {
+    color: rgba(244, 241, 232, 0.35) !important;
+    font-size: 16px !important;
+    top: 6px !important;
+    right: 8px !important;
+    font-family: 'Montserrat', Arial, sans-serif !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: rgba(244, 241, 232, 0.8) !important;
 }

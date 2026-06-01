@@ -2,6 +2,14 @@
 
 <head>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+
   <meta charset="utf-8">
   <title>My London Soundscape</title>
 
@@ -9,7 +17,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map"></div>
+  <aside id="sidebar">
+    <h1>Your London Soundscape Map</h1>
+
+    <p>A visual sound map of London. London is a noisy city.</p>
+
+    <p>This map visualises crowd-sourced sound data, drawn from the NoiseCapture open dataset.</p>
+
+    <p>Each circle represents a measurement area - the size and colour encode the average LAeq (dB) value.</p>
+
+    <p>Use the controls below to explore the soundscape of London, and see how noise is distributed across the city.</p>
+
+    <label for="boroughSelect">Focus area</label>
+
+    <select id="boroughSelect">
+        <option value="all">All London</option>
+    </select>
+
+    <div id="boroughInfo">
+        <p>Showing all recorded sound points.</p>
+    </div>
+
+    <button id="resetButton">Reset view</button>
+</aside>
+
+<div id="map"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
