@@ -26,4 +26,4 @@ style.css - stylesheet containing all css code for the website
 
 V^0S DOCUMENTATION - documentation for whole design process
 
-# You can visit my website here: https://cci.arts.ac.uk/~nicoll/ #
+# You can visit my website here: https://krispy2306.github.io/Computational_Pratice-Visulisation_Sensing/  #
